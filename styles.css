@@ -1,0 +1,605 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+body {
+    color: rgba(6, 8, 5, 255);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 18px;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Change from 40px auto to 0 auto */
+    padding: 30px;
+    background: rgba(203, 223, 240, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(209, 30, 62, 255);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeIn 0.8s ease-out forwards;
+    min-height: 100vh;
+    /* Ensure container fills viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+button,
+.header-font {
+    font-family: 'Saira', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3rem;
+    color: rgba(203, 223, 240, 0.7);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(209, 30, 62, 255);
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: rgba(6, 8, 5, 255);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(209, 30, 62, 255);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    height: 100px;
+    object-fit: contain;
+}
+
+/* Currency selector */
+.currency-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    padding: 10px 15px;
+    background-color: rgba(203, 223, 240, 0.3);
+    border: 2px solid rgba(209, 30, 62, 255);
+    border-radius: 5px;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.currency-label {
+    margin-right: 15px;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.currency-dropdown {
+    background-color: rgba(203, 223, 240, 0.7);
+    border: 2px solid rgba(209, 30, 62, 255);
+    color: rgba(6, 8, 5, 255);
+    padding: 8px 15px;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.currency-dropdown:hover {
+    background-color: rgba(203, 223, 240, 0.9);
+    box-shadow: 0 0 15px rgba(209, 30, 62, 0.4);
+    transform: translateY(-2px);
+}
+
+.currency-dropdown:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(209, 30, 62, 0.5);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    flex: 1;
+    padding: 14px;
+    background-color: rgba(203, 223, 240, 0.5);
+    color: rgba(6, 8, 5, 255);
+    border: 2px solid rgba(209, 30, 62, 255);
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    position: relative;
+    overflow: hidden;
+    margin-right: 1.5rem;
+    /* Add right margin */
+}
+
+/* Remove margin from the last tab */
+.tab:last-child {
+    margin-right: 0;
+}
+
+.tab.active {
+    background-color: rgba(209, 30, 62, 255);
+    color: rgba(203, 223, 240, 255);
+}
+
+.tab:hover {
+    background-color: rgba(209, 30, 62, 0.2);
+    box-shadow: 0 0 15px rgba(209, 30, 62, 0.5);
+    transform: translateY(-3px);
+}
+
+.tab.active:hover {
+    background-color: rgba(209, 30, 62, 0.9);
+    box-shadow: 0 0 20px rgba(209, 30, 62, 0.7);
+}
+
+/* Panel layout */
+.panels {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    height: calc(100vh - 320px);
+    /* Calculate height based on viewport minus header/footer */
+    min-height: 500px;
+    /* Set minimum height */
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .panels {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.panel {
+    background-color: rgba(203, 223, 240, 0.2);
+    padding: 1.5rem;
+    border: 2px solid rgba(209, 30, 62, 255);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    /* Fill full height of parent */
+    overflow-y: auto;
+    /* Enable vertical scrolling if content overflows */
+    display: flex;
+    flex-direction: column;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(209, 30, 62, 0.2);
+    background-color: rgba(203, 223, 240, 0.25);
+}
+
+/* Ensure input sections grow to fill space */
+.input-mode {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make items container grow to fill available space */
+#items-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjust items list to grow within container */
+.items-list {
+    max-height: none;
+    /* Remove fixed height */
+    flex-grow: 1;
+    /* Grow to fill space */
+    overflow-y: auto;
+    margin-top: 1rem;
+    border: 2px solid rgba(209, 30, 62, 255);
+    border-radius: 4px;
+}
+
+/* Forms and inputs */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: rgba(6, 8, 5, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Saira', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 1.2rem;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 1rem;
+    background-color: rgba(203, 223, 240, 0.7);
+    color: rgba(6, 8, 5, 255);
+    border: 2px solid rgba(209, 30, 62, 255);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(209, 30, 62, 0.5);
+    background-color: rgba(203, 223, 240, 0.9);
+}
+
+input:hover {
+    box-shadow: 0 0 15px rgba(209, 30, 62, 0.4);
+    transform: translateY(-2px);
+    background-color: rgba(203, 223, 240, 0.8);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: rgba(209, 30, 62, 255);
+    color: rgba(203, 223, 240, 255);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: rgba(189, 27, 56, 255);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(209, 30, 62, 0.5);
+}
+
+/* Ripple effect */
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+button:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Glow effect on hover */
+button:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+            rgba(209, 30, 62, 0.8) 0%,
+            rgba(209, 30, 62, 0) 60%);
+    opacity: 0.4;
+    z-index: -1;
+    animation: glow 1.5s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* Items list */
+.items-list {
+    max-height: 240px;
+    overflow-y: auto;
+    margin-top: 1rem;
+    border: 2px solid rgba(209, 30, 62, 255);
+    border-radius: 4px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(209, 30, 62, 0.3);
+    background-color: rgba(203, 223, 240, 0.5);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.item:hover {
+    transform: translateX(5px);
+    background-color: rgba(203, 223, 240, 0.7);
+    box-shadow: -5px 0 10px rgba(209, 30, 62, 0.3);
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.item-price {
+    color: rgba(6, 8, 5, 0.7);
+    font-size: 1.1rem;
+}
+
+.remove-btn {
+    color: rgba(209, 30, 62, 255);
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.remove-btn:hover {
+    color: rgba(189, 27, 56, 255);
+    background: none;
+    transform: scale(1.1);
+}
+
+.total-multibucks {
+    margin-top: 0.75rem;
+    text-align: right;
+    font-weight: bold;
+    color: rgba(6, 8, 5, 255);
+    font-size: 1.2rem;
+}
+
+/* Results table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    border: 2px solid rgba(209, 30, 62, 255);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+th {
+    background-color: rgba(209, 30, 62, 255);
+    color: rgba(203, 223, 240, 255);
+    text-align: left;
+    padding: 14px;
+    text-transform: uppercase;
+    font-family: 'Saira', sans-serif;
+    font-size: 1.2rem;
+}
+
+tr {
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+tr:hover td {
+    background-color: rgba(203, 223, 240, 0.7);
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid rgba(209, 30, 62, 0.3);
+    background-color: rgba(203, 223, 240, 0.5);
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.results-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(209, 30, 62, 255);
+    font-size: 1.3rem;
+}
+
+.price-value {
+    color: rgba(233, 238, 243, 0.89);
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-shadow: 1px 1px 0 rgba(6, 8, 5, 0.8), -1px -1px 0 rgba(6, 8, 5, 0.8), 1px -1px 0 rgba(6, 8, 5, 0.8), -1px 1px 0 rgba(6, 8, 5, 0.8);
+}
+
+.extra {
+    color: rgba(209, 30, 62, 255);
+}
+
+/* Explanation */
+.explanation-toggle {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: rgba(209, 30, 62, 255);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: auto;
+    font-size: 0.9rem;
+}
+
+.explanation {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: rgba(203, 223, 240, 0.3);
+    border: 2px solid rgba(209, 30, 62, 255);
+    font-size: 0.9rem;
+    display: none;
+    border-radius: 4px;
+}
+
+.explanation.active {
+    display: block;
+}
+
+.explanation strong {
+    color: rgba(209, 30, 62, 255);
+    font-family: 'Saira', sans-serif;
+}
+
+/* Footer */
+.footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(209, 30, 62, 255);
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(6, 8, 5, 0.7);
+}
+
+.disclaimer {
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Saira', sans-serif;
+}
+
+.attribution {
+    margin-top: 0.25rem;
+}
+
+.contribute-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: rgba(209, 30, 62, 255);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.contribute-link:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 2px 5px rgba(209, 30, 62, 0.3);
+}
+
+/* Hide elements */
+.hidden {
+    display: none;
+}
+
+/* Mouse trail glow effect */
+.cursor-glow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(209, 30, 62, 0.7) 0%, rgba(209, 30, 62, 0) 70%);
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.explanation-section {
+    margin-top: auto;
+    /* Push to bottom of available space */
+    padding-top: 1.5rem;
+}
+

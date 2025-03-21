@@ -1,0 +1,52 @@
+{
+  "currencies": [
+    {
+      "code": "BRL",
+      "symbol": "R$",
+      "name": "Brazilian Real",
+      "packs": [
+        { "id": 1, "amount": 500, "price": 23.95, "bonus": 0 },
+        { "id": 2, "amount": 1150, "price": 47.90, "bonus": 0.15 },
+        { "id": 3, "amount": 2400, "price": 95.80, "bonus": 0.20 },
+        { "id": 4, "amount": 6250, "price": 239.50, "bonus": 0.25 },
+        { "id": 5, "amount": 13000, "price": 479.00, "bonus": 0.30 }
+      ]
+    },
+    {
+      "code": "USD",
+      "symbol": "$",
+      "name": "US Dollar",
+      "packs": [
+        { "id": 1, "amount": 500, "price": 4.99, "bonus": 0 },
+        { "id": 2, "amount": 1150, "price": 9.99, "bonus": 0.15 },
+        { "id": 3, "amount": 2400, "price": 19.99, "bonus": 0.20 },
+        { "id": 4, "amount": 6250, "price": 49.99, "bonus": 0.25 },
+        { "id": 5, "amount": 13000, "price": 99.99, "bonus": 0.30 }
+      ]
+    },
+    {
+      "code": "EUR",
+      "symbol": "€",
+      "name": "Euro",
+      "packs": [
+        { "id": 1, "amount": 500, "price": 4.99, "bonus": 0 },
+        { "id": 2, "amount": 1150, "price": 9.99, "bonus": 0.15 },
+        { "id": 3, "amount": 2400, "price": 19.99, "bonus": 0.20 },
+        { "id": 4, "amount": 6250, "price": 49.99, "bonus": 0.25 },
+        { "id": 5, "amount": 13000, "price": 99.99, "bonus": 0.30 }
+      ]
+    },
+    {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound",
+      "packs": [
+        { "id": 1, "amount": 500, "price": 3.99, "bonus": 0 },
+        { "id": 2, "amount": 1150, "price": 7.99, "bonus": 0.15 },
+        { "id": 3, "amount": 2400, "price": 16.99, "bonus": 0.20 },
+        { "id": 4, "amount": 6250, "price": 39.99, "bonus": 0.25 },
+        { "id": 5, "amount": 13000, "price": 79.99, "bonus": 0.30 }
+      ]
+    }
+  ]
+}

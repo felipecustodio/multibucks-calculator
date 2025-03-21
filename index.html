@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FINALS Multibucks Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;600;700;900&family=Saira+Extra+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <video class="video-background" autoplay loop muted playsinline>
+        <source src="assets/the-finals-background.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="assets/the-finals-logo.webp" alt="THE FINALS Logo" class="logo">
+        </div>
+        <h1>MULTIBUCKS CALCULATOR</h1>
+
+        <!-- Currency selector -->
+        <div class="currency-selector">
+            <label for="currency-select" class="currency-label">Select Currency:</label>
+            <select id="currency-select" class="currency-dropdown">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" id="tab-total">Calculate by Total</button>
+                <button class="tab" id="tab-items">Calculate by Items</button>
+            </div>
+
+            <div class="panels">
+                <!-- Left panel -->
+                <div class="panel">
+                    <!-- Total input mode -->
+                    <div id="total-input" class="input-mode">
+                        <h2>Enter Total Multibucks</h2>
+                        <label for="amount">How many Multibucks do you need?</label>
+                        <input type="number" id="amount" min="1" value="1000">
+                    </div>
+
+                    <!-- Items input mode -->
+                    <div id="items-input" class="input-mode hidden">
+                        <h2>Add Items</h2>
+                        <label for="item-name">Item Name (Optional)</label>
+                        <input type="text" id="item-name" placeholder="Leave blank for auto-naming">
+
+                        <label for="item-price">Multibucks Price</label>
+                        <input type="number" id="item-price" min="1">
+
+                        <button id="add-item-btn">Add Item</button>
+
+                        <!-- Items list -->
+                        <div id="items-container" class="hidden">
+                            <h3 class="header-font" style="margin-top: 1rem;">Your Items:</h3>
+                            <div id="items-list" class="items-list"></div>
+                            <div id="items-total" class="total-multibucks">Total: 0 Multibucks</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right panel -->
+                <div class="panel">
+                    <h2>Recommended Purchase:</h2>
+                    <div id="results-container">
+                        <table id="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Pack</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th class="text-right">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body"></tbody>
+                        </table>
+
+                        <div class="results-total">
+                            <div class="header-font">Total Price:</div>
+                            <div class="price-value">R$0.00</div>
+                        </div>
+
+                        <div class="results-total">
+                            <div class="header-font">Total Multibucks:</div>
+                            <div id="total-multibucks">0</div>
+                        </div>
+                    </div>
+                    <div id="no-results" class="hidden" style="text-align: center; padding: 2rem 0;">
+                        Please enter a valid amount of Multibucks.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation -->
+            <button class="explanation-toggle" id="explanation-toggle">How does this calculator work?</button>
+            <div class="explanation" id="explanation">
+                <p class="header-font" style="color: rgba(209,30,62,255); margin-bottom: 0.5rem;">The calculator offers two modes:</p>
+                <p><strong>CALCULATE BY TOTAL:</strong> Enter the total amount of Multibucks you need, and the calculator will determine the optimal combination of packs to purchase.</p>
+                <p style="margin-top: 0.5rem"><strong>CALCULATE BY ITEMS:</strong> Add each item you want to purchase with its Multibucks price, and the calculator will total them up and determine the optimal combination of packs.</p>
+                <p style="margin-top: 0.5rem">The calculator uses a greedy algorithm to find a cost-effective combination of packs to buy. It starts with the largest pack and works its way down to meet your desired amount.</p>
+                <p style="margin-top: 0.5rem">Sometimes you might end up with more Multibucks than you need because the packs don't divide evenly into your desired amount.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Based on THE FINALS store prices shown in the reference image. Pack prices are in <span id="currency-name">Brazilian Real</span>.</p>
+            <p class="disclaimer">DISCLAIMER: This calculator is not affiliated with, endorsed by, or connected to THE FINALS or Embark Studios.</p>
+            <p class="attribution">This calculator was developed using Anthropic Claude 3.7 Sonnet.</p>
+            <a href="https://github.com/your-username/finals-multibucks-calculator" class="contribute-link">CONTRIBUTE YOUR CURRENCY ON GITHUB</a>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
