@@ -79,7 +79,7 @@ h1 {
     text-align: center;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(209, 30, 62, 255);
+    /* border-bottom: 2px solid rgba(209, 30, 62, 255); */
     font-weight: 900;
 }
 
@@ -88,7 +88,7 @@ h2 {
     margin-bottom: 1rem;
     color: rgba(6, 8, 5, 255);
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(209, 30, 62, 255);
+    /* border-bottom: 1px solid rgba(209, 30, 62, 255); */
 }
 
 .logo-container {
